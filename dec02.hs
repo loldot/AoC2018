@@ -19,7 +19,7 @@ combinations (code:codes) = [(code,c) | c <- codes] ++ combinations codes
 compareCode (codeA, codeB) = 
     let common = [ca | (ca, cb) <- zip codeA codeB, ca == cb]
         diff =  [cb | (ca, cb) <- zip codeA codeB, ca /= cb]
-    in (common, length(diff))
+    in (common, length diff)
 
 checksum codes =
     let  hists = map (\c -> histogram c Map.empty) codes
